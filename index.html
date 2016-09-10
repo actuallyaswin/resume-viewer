@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+    "Resume Viewer"
+    $ Author: Aswin Sivaraman
+    $ Edited: 2016-09-10 15:01:59
+-->
+<html lang="en">
+<head>
+	<title>Aswin Sivaraman | Resume</title>
+
+	<!-- Meta -->
+	<meta charset="UTF-8">
+	<meta name="description" content=""/>
+	<meta name="author" content="Aswin Sivaraman"/>
+	<meta name="copyright" content="Copyright (c) 2016"/>
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<main>
+		<div class="container">
+			<iframe src="templates/2016_fall.html" width="600" height="480" allowfullscreen="" frameborder="0">
+			</iframe>
+		</div>
+	</main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noisy/1.2/jquery.noisy.min.js"></script>
+<script>
+	// Give the body that realistic paper look
+	$('.container').noisy({
+	    'intensity' : 0.25,
+	    'size' : '100',
+	    'opacity' : 0.08,
+	    'fallback' : '',
+	    'monochrome' : false
+	}).css('background-color', '#fff');
+</script>
+</html>

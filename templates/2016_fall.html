@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+    "Aswin's Resume - Fall 2016"
+    $ Author: Aswin Sivaraman
+    $ Edited: 2016-09-10 15:02:13
+-->
+<html lang="en">
+<head>
+  <title>Aswin's Resume - Fall 2016</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/resume/themes/eminence.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      {{name-first}} {{name-last}}
+    </h1>
+    <nav>
+      {{#citizen}}
+      <i class="fa fa-home"></i> US Citizen &middot;
+      {{/citizen}}
+      <i class="fa fa-envelope-square"></i> <em><a href="mailto:{{email}}" target="_blank">{{email}}</a></em> &middot;
+      <i class="fa fa-phone-square"></i> <em>{{phone}}</em> &middot;
+      <i class="fa fa-globe"></i> <em><a href="http://{{website}}" target="_blank">{{website}}</a></em>
+    </nav>
+  </header>
+
+  <main>
+
+    {{#sections}}
+      <h2>
+        {{heading}}
+      </h2>
+      <section>
+        {{#data}}
+          {{^category}}
+          <article>
+            <time>{{date-start}}&mdash;{{date-end}}</time>
+            <h3>{{company}}</h3>
+            <h3>{{degree}}</h3>
+            <h3>{{group}}</h3>
+            <h4>{{role}}</h4>
+            <h4>{{university}}</h4>
+            <h4>{{professor}}</h4>
+            <p>{{summary}}</p>
+            <ul class="bullets">
+            {{#bullets}}
+              <li>{{.}}</li>
+            {{/bullets}}
+            </ul>
+          </article>
+          {{/category}}
+          <aside>
+            <h5>{{category}}</h5>
+            <ul class="commas">
+            {{#items}}
+              <li>{{.}}</li>
+            {{/items}}
+            </ul>
+          </aside>
+        {{/data}}
+      </section>
+    {{/sections}}
+
+  </main>
+</body>
+
+<!-- Javascript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+<script>
+  // Fetch template and data
+  var template = document.body.innerHTML;
+  var data;
+  $.getJSON('data.json', function(json) {
+    data = json;
+
+    // Preprocess data
+
+    // Render the template
+    document.body.innerHTML = Mustache.render(template, data);
+  });
+</script>
+
+</html>
