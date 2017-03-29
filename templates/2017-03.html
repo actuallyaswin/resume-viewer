@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+    "Aswin's Resume - Spring 2017"
+    $ Author: Aswin Sivaraman
+    $ Edited: 2017-03-10 14:06:53
+-->
+<html lang="en">
+<head>
+  <title>Aswin's Resume - Spring 2017</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,600" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../resume/themes/viridescent.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <strong>{{name-first}}</strong> {{name-last}}
+    </h1>
+    <nav>
+      {{#citizen}}
+      <i class="fa fa-home"></i> US Citizen &middot;
+      {{/citizen}}
+      <i class="fa fa-envelope"></i> <em><a href="mailto:{{email}}" target="_blank">{{email}}</a></em> &middot;
+      <i class="fa fa-phone"></i> <em>{{phone}}</em>
+      <br />
+      <i class="fa fa-globe"></i> <em><a href="http://{{website}}" target="_blank">{{website}}</a></em> &middot;
+      <i class="fa fa-github"></i> <em><a href="http://github.com/{{github}}" target="_blank">{{github}}</a></em> &middot;
+      <i class="fa fa-linkedin"></i> <em><a href="http://linkedin.com/in/{{linkedin}}" target="_blank">{{linkedin}}</a></em>
+    </nav>
+  </header>
+
+  <main>
+
+    <div id="col-1">
+      {{#sections-1}}
+        <section>
+          <h2>
+            {{heading}}
+          </h2>
+          {{#data}}
+            {{^category}}
+            <article>
+              <h3>{{company}}</h3>
+              <h3>{{degree}}</h3>
+              <h3>{{group}}</h3>
+              <h3>{{name}}</h3>
+              <h4>{{role}}</h4>
+              <h4>{{university}}</h4>
+              <h4>{{professor}}</h4>
+              {{#date-start}}
+                <time>{{date-start}}&mdash;{{date-end}}</time>
+              {{/date-start}}
+              <p>{{summary}}</p>
+              <ul class="bullets">
+              {{#bullets}}
+                <li>{{.}}</li>
+              {{/bullets}}
+              </ul>
+            </article>
+            {{/category}}
+            <aside>
+              <h5>{{category}}</h5>
+              <ul class="commas">
+              {{#items}}
+                <li>{{.}}</li>
+              {{/items}}
+              </ul>
+            </aside>
+          {{/data}}
+        </section>
+      {{/sections-1}}
+    </div>
+    <div id="col-2">
+      {{#sections-2}}
+        <section>
+          <h2>
+            {{heading}} {{@index}}
+          </h2>
+          {{#data}}
+            {{^category}}
+            <article>
+              <time>{{date-start}}&mdash;{{date-end}}</time>
+              <h3>{{company}}</h3>
+              <h3>{{degree}}</h3>
+              <h3>{{group}}</h3>
+              <h3>{{name}}</h3>
+              <h4>{{role}}</h4>
+              <h4>{{university}}</h4>
+              <h4>{{professor}}</h4>
+              <p>{{summary}}</p>
+              <ul class="bullets">
+              {{#bullets}}
+                <li>{{.}}</li>
+              {{/bullets}}
+              </ul>
+            </article>
+            {{/category}}
+            <aside>
+              <h5>{{category}}</h5>
+              <ul class="commas">
+              {{#items}}
+                <li>{{.}}</li>
+              {{/items}}
+              </ul>
+            </aside>
+          {{/data}}
+        </section>
+      {{/sections-2}}
+    </div>
+    <div class="clear"></div>
+
+  </main>
+</body>
+
+<!-- Javascript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+<script>
+
+  // Fetch template and data
+  var template = document.body.innerHTML;
+  var data = {
+    "name-first" : "Aswin",
+    "name-last"  : "Sivaraman",
+    "email"      : "sivaram2@illinois.edu",
+    "phone"      : "630-590-3366",
+    "website"    : "www.aswinsivaraman.com",
+    "linkedin"   : "actuallyaswin",
+    "github"     : "actuallyaswin",
+    "citizen"    : true,
+
+    "sections-1": [
+      {
+        "heading": "Education",
+        "data": [
+          {
+            "university" : "Indiana University",
+            "degree"     : "PhD Intelligent Systems Engineering",
+            "date-start" : "Aug 2017",
+            "date-end"   : "May 2022"
+          },
+          {
+            "university" : "University of Illinois at Urbana-Chamapaign",
+            "degree"     : "BS Electrical Engineering",
+            "date-start" : "Aug 2011",
+            "date-end"   : "May 2015"
+          }
+        ]
+      },
+      {
+        "heading": "Skills",
+        "data": [
+          {
+            "category": "Software",
+            "items": [
+              "Python",
+              "C",
+              "C++",
+              "MATLAB"
+            ]
+          },
+          {
+            "category": "Web",
+            "items": [
+              "HTML5",
+              "CSS3",
+              "JavaScript",
+              "Angular",
+              "jQuery",
+              "Node",
+              "Express",
+              "RESTful",
+              "SQL",
+              "NoSQL",
+              "MongoDB",
+              "PHP",
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Coursework",
+        "data": [
+          {
+            "bullets": [
+              "Digital Signal Processing",
+              "Machine Learning",
+              "Speech Recognition & Synthesis",
+              "Artificial Intelligence",
+              "Audio Engineering",
+              "Full-Stack Web Development",
+              "Data-Driven Design",
+              "Music Information Retrieval",
+              "Natural Language Processing",
+              "Computer Music",
+              "Virtual Reality",
+              "Sound Design",
+              "Field Recording",
+              "Acoustics",
+              "Algorithms"
+            ]
+          }
+        ]
+      }
+    ],
+    "sections-2": [
+      {
+        "heading": "Research",
+        "data": [
+          {
+            "group"      : "Computational Audio Lab",
+            "professor"  : "Prof. Paris Smaragdis",
+            "date-start" : "Aug 2014",
+            "date-end"   : "May 2015",
+            "summary"    : "Wrote my undergraduate thesis supervised PhD candidate Minje Kim to evaluate a novel framework for speech recognition utilizing winner-take-all semantic hashes of spectrogram frames."
+          },
+          {
+            "group"      : "Statistical Speech Technology Group",
+            "professor"  : "Prof. Hasegawa-Johnson",
+            "date-start" : "May 2014",
+            "date-end"   : "Jan 2015",
+            "summary"    : "Performed audio file database segmentation using speech recognition and speech synthesis toolkits (OpenFST, Kaldi, HTK/HTS) to be used in an Emotive audio-visual avatar (EAVA)."
+          }
+        ]
+      },
+      {
+        "heading": "Employment",
+        "data": [
+          {
+            "company"    : "Yellow Box Advertising",
+            "role"       : "Web Strategist",
+            "date-start" : "Jan 2012",
+            "date-end"   : "Current",
+            "summary"    : "Long-standing freelance web development guru at a digital agency specializing in online marketing campaigns, SEO, custom websites, and mobile applications.",
+            "bullets": [
+              "Worked with over 30 clients translating business requirements into data-driven user-friendly web solutions"
+            ]
+          },
+          {
+            "company"    : "Qualcomm",
+            "role"       : "Embedded Software Engineer",
+            "date-start" : "Jul 2015",
+            "date-end"   : "Mar 2017",
+            "summary"    : "Developed and supported Diagnostic Services on various Snapdragon chipsets, handling change requests from customers and internal engineers.",
+            "bullets": [
+              "Designed debug message trace buffer feature on multiple new chipsets",
+              "Mentored team newhires, transferring knowledge over newly written documentation"
+            ]
+          },
+          {
+            "company"    : "University of Illinois at Urbana-Chamapaign",
+            "role"       : "Course Staff for CS498RK",
+            "date-start" : "Jan 2015",
+            "date-end"   : "May 2015",
+            "summary"    : "Teaching assistant for new web development course taught by Prof. Ranjitha Kumar.",
+            "bullets": [
+              "Collaborated with a team of four to design lectures, programming assignments, and exams from scratch for over 100 students",
+              "Created an REST API endpoint autograder using Python and JavaScript"
+            ]
+          }
+        ]
+      }
+      ,
+      {
+        "heading": "Projects",
+        "data": [
+          {
+            "name"       : "Music Browser",
+            "role"       : "",
+            "date-start" : "Aug 2016",
+            "date-end"   : "Oct 2016",
+            "summary"    : [
+              "Built a music information retrieval application in Python which recognizes music played on a vinyl turntable, fetches the relevant metadata through Spotify and Discogs, and then displays the song information in real-time on an AngularJS webapp."
+            ]
+          }
+        ]
+      }
+    ]
+  };
+
+  // Render the template
+  document.body.innerHTML = Mustache.render(template, data);
+
+</script>
+
+</html>

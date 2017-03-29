@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+    "Aswin's Resume - Fall 2016"
+    $ Author: Aswin Sivaraman
+    $ Edited: 2016-09-10 15:02:13
+-->
+<html lang="en">
+<head>
+  <title>Aswin's Resume - Fall 2016</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../resume/themes/eminence.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      {{name-first}} {{name-last}}
+    </h1>
+    <nav>
+      {{#citizen}}
+      <i class="fa fa-home"></i> US Citizen &middot;
+      {{/citizen}}
+      <i class="fa fa-envelope-square"></i> <em><a href="mailto:{{email}}" target="_blank">{{email}}</a></em> &middot;
+      <i class="fa fa-phone-square"></i> <em>{{phone}}</em> &middot;
+      <i class="fa fa-globe"></i> <em><a href="http://{{website}}" target="_blank">{{website}}</a></em>
+    </nav>
+  </header>
+
+  <main>
+
+    {{#sections}}
+      <h2>
+        {{heading}}
+      </h2>
+      <section>
+        {{#data}}
+          {{^category}}
+          <article>
+            <time>{{date-start}}&mdash;{{date-end}}</time>
+            <h3>{{company}}</h3>
+            <h3>{{degree}}</h3>
+            <h3>{{group}}</h3>
+            <h4>{{role}}</h4>
+            <h4>{{university}}</h4>
+            <h4>{{professor}}</h4>
+            <p>{{summary}}</p>
+            <ul class="bullets">
+            {{#bullets}}
+              <li>{{.}}</li>
+            {{/bullets}}
+            </ul>
+          </article>
+          {{/category}}
+          <aside>
+            <h5>{{category}}</h5>
+            <ul class="commas">
+            {{#items}}
+              <li>{{.}}</li>
+            {{/items}}
+            </ul>
+          </aside>
+        {{/data}}
+      </section>
+    {{/sections}}
+
+  </main>
+</body>
+
+<!-- Javascript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+<script>
+  // Fetch template and data
+  var template = document.body.innerHTML;
+  var data = {
+  "name-first" : "Aswin",
+  "name-last"  : "Sivaraman",
+  "email"      : "sivaram2@illinois.edu",
+  "phone"      : "630-590-3366",
+  "website"    : "www.aswinsivaraman.com",
+  "citizen"    : true,
+
+  "sections": [
+    {
+      "heading": "Education",
+      "data": [
+        {
+          "university" : "University of Illinois at Urbana-Chamapaign",
+          "degree"     : "B.S., Electrical Engineering",
+          "date-start" : "Aug 2011",
+          "date-end"   : "May 2015"
+        }
+      ]
+    },
+    {
+      "heading": "Experience",
+      "data": [
+        {
+          "company"    : "Qualcomm",
+          "role"       : "Embedded Software Engineer",
+          "date-start" : "Jul 2015",
+          "date-end"   : "Current",
+          "summary"    : "NON-HLOS support and feature devlopment engineer for the Diagnostic Services team. Programmed primarily in C, with scripting done in Python.",
+          "bullets": [
+            "Served as primary point-of-contact for debug message trace buffer functionality across multiple new peripherals",
+            "Handled over 100 change requests, providing preliminary support for customers and internal engineers",
+            "Performed code reviews and mentored two team newhires"
+          ]
+        },
+        {
+          "company"    : "University of Illinois at Urbana-Chamapaign",
+          "role"       : "Course Staff for CS498RK",
+          "date-start" : "Jan 2015",
+          "date-end"   : "May 2015",
+          "summary"    : "Teaching assistant for popular new web development course at Illinois taught by Prof. Ranjitha Kumar. Helped organize lectures and programming demos for various topics.",
+          "bullets": [
+            "Designed and graded four programming assignments and two exams for over 100 students",
+            "Created an RESTful API endpoint autograder in Python and Javascript"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Research",
+      "data": [
+        {
+          "group"      : "Computational Audio Lab",
+          "professor"  : "Prof. Smaragdis",
+          "date-start" : "Aug 2014",
+          "date-end"   : "May 2015",
+          "bullets"    : [
+            "Wrote undergraduate thesis paper in collaboration with PhD candidate Minje Kim",
+            "Evaluated a framework for an experimental source separation technique utilizing hashed spectrogram frames, used to match known signals to unknown input"
+          ]
+        },
+        {
+          "group"      : "Statistical Speech Technology Group",
+          "professor"  : "Prof. Hasegawa-Johnson",
+          "date-start" : "May 2014",
+          "date-end"   : "Jan 2015",
+          "bullets"    : [
+            "Trained in speech recognition and speech synthesis technologies (OpenFST, Kaldi, HTK/HTS)",
+            "Performed audio alignment and segmentation on the AVICAR corpus"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Skills",
+      "data": [
+        {
+          "category": "Software",
+          "items": [
+            "Python",
+            "C/C++",
+            "MATLAB"
+          ]
+        },
+        {
+          "category": "Web",
+          "items": [
+            "HTML5",
+            "CSS3",
+            "Javascript",
+            "AngularJS",
+            "jQuery",
+            "Node",
+            "Express"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Campus Involvement",
+      "data": [
+        {
+          "group"      : "IEEE",
+          "role"       : "Vice President; Publicity Director",
+          "date-start" : "Aug 2012",
+          "date-end"   : "May 2015",
+          "bullets"    : [
+            "Promoted engineering student advancement and outreach by hosting workshops, corporate events, and social activities"
+          ]
+        },
+        {
+          "group"      : "ECE Pulse",
+          "role"       : "Director; Networking Chair",
+          "date-start" : "Aug 2013",
+          "date-end"   : "May 2015",
+          "bullets"    : [
+            "Led a group in hosting a weeklong student-run technical conference—comprised of tech talks, a design competition, and a networking session—in partnership with leading tech companies",
+            "Managed teams overseeing conference logistics and creating the design competitions"
+          ]
+        }
+      ]
+    }
+  ]
+};
+  //$.getJSON('data.json', function(json) {
+    //data = json;
+
+    // Preprocess data
+
+    // Render the template
+    document.body.innerHTML = Mustache.render(template, data);
+  //});
+</script>
+
+</html>

@@ -1,0 +1,169 @@
+/*
+    Stylesheet for "Viridescent"
+    $ Author: Aswin Sivaraman
+    $ Edited: 2017-03-10 11:29:59
+*/
+
+/*
+    COLORS
+
+    Primary - #99CC99
+    Secondary - #315240
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+body {
+    /* overall page font */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: lighter;
+    color: #315240;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    /* for person's name */
+    font-family: 'Raleway', sans-serif;
+    font-size: 3em;
+    font-weight: lighter;
+
+    color: #315240;
+}
+
+#col-1 {
+    width: 28%;
+    float: left;
+}
+
+#col-2 {
+    margin-left: 30%;
+}
+
+.clear {
+    clear: both;
+}
+
+h2 {
+    /* for section heading */
+    font-weight: bolder;
+    text-transform: uppercase;
+    background: #99CC99;
+    color: #fff;
+    border-radius: 2px;
+    padding-left: 1em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    /* for company / group / degree */
+    font-weight: bold;
+}
+
+h4 {
+    /* for role / professor / university */
+    font-style: italic;
+}
+
+h5 {
+    /* for skill categories */
+    font-weight: bold;
+    display: inline;
+}
+
+h5:not(:empty):after {
+    content: ": ";
+    font-style: normal;
+    font-weight: normal;
+}
+
+article:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+aside:last-child {
+    margin-bottom: 1em;
+}
+
+#col-2 time {
+    float: right;
+}
+
+ul {
+    list-style: none;
+    display: block;
+}
+
+ul.bullets li {
+    padding-left: 3em;
+    font-size: 0.75em;
+}
+
+ul.bullets li:before {
+    font-family: FontAwesome;
+    content: "\f0c8";
+    color: #99CC99;
+    margin-left: -2em;
+    margin-right: 1em;
+}
+
+ul.commas {
+    display: block;
+    padding-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+ul.commas li {
+    display: inline;
+}
+
+ul.commas li:not(:last-child):after {
+    content: ", ";
+}
+
+p {
+    font-size: 0.8em;
+    /*font-style: italic;*/
+}
+
+p:not(:empty):before {
+    /*content: "Summary: ";*/
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* for browsers only */
+@media screen {
+    /* overall page margins */
+    body {
+        margin: 2em;
+    }
+}
+
+/* for printers only */
+@media print {
+    /* remove hyperlinks */
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
